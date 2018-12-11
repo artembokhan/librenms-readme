@@ -18,10 +18,10 @@
 #### Configure MySQL
     mysql -uroot -p
 
-> NOTE: Password is set 'Neiviek0'.
+> NOTE: Set your 'password' below.
 ```sql
 CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'Neiviek0';
+CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'localhost';
 FLUSH PRIVILEGES;
 exit
@@ -42,6 +42,8 @@ lower_case_table_names=0
 #### Configure NGINX
 
     vim /etc/nginx/sites-available/librenms.conf
+
+Then add symlink /etc/nginx/sites-available/librenms.conf > /etc/nginx/sites-enabled/librenms.conf
 
 Add the following config, edit `server_name` as required:
 
@@ -73,7 +75,6 @@ server {
 }
 ```
 
-   
     systemctl reload nginx
 
 ### Cron job
