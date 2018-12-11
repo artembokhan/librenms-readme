@@ -16,7 +16,6 @@
 ## DB Server ##
 
 #### Configure MySQL
-    systemctl restart mysql
     mysql -uroot -p
 
 > NOTE: Password is set 'Neiviek0'.
